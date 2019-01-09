@@ -25,6 +25,7 @@ int main(int s,char *argv[]) {
 	string saveframe = string(argv[1]) + string("/frame_");
 	int fno = 0,key;
 	while((key = waitKey(1)) != 'c' && cap.read(frame)) {
+		flip(frame,frame,+1);
 		imwrite(saveframe + to_string(fno) + string(".jpg"),frame);	
 		imshow("Webcam",frame);
 		cout << key << endl; 
