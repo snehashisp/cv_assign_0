@@ -48,7 +48,8 @@ int main(int s,char *argv[]) {
 	chdir(argv[2]);
 	auto i = sorted_frames.begin();
 	Mat frame = imread((*i).c_str(),1);
-	VideoWriter output_video(string(c_dir) + string("/")  + string(argv[1]),VideoWriter::fourcc('M','J','P','G'),(double)atoi(argv[3]),frame.size(),true);
+	VideoWriter output_video(string(c_dir) + string("/")  + string(argv[1]),
+		VideoWriter::fourcc('M','P','4','2'),(double)atoi(argv[3]),frame.size(),true);
 	if(!output_video.isOpened()) {
 		printf("Error creating video output file \n");
 		return -1;

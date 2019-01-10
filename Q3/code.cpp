@@ -14,6 +14,7 @@ using namespace cv;
 int start;
 Vec3b Color;
 
+//function to determine the color or the pixel to be used for chroma keying
 void mousePoint(int event, int x, int y, int flags, void *data) {
 
 	Mat *frame = (Mat *)data;
@@ -29,6 +30,7 @@ void mousePoint(int event, int x, int y, int flags, void *data) {
 	return;
 }
 
+//combine the foreground and background frames
 void composeFrames(Mat &fore, Mat &back, int diff) {
 
 	Mat resback,ret;
@@ -62,7 +64,8 @@ int main(int s,char *argv[]) {
 
 	if(s < 5 || s == 6 || s > 7) {
 		printf("Format chromacombine [FOREGROUND VIDEO] [BACKGROUND VIDEO] [COMBINED VIDEO] "
-			"[ALLOWED COLOR VARIATION]. Color variation can range from 0-255.");
+			"[ALLOWED COLOR VARIATION] {optional horizontal res} {optional vertical res}
+				. Color variation can range from 0-255.");
 		return -1;
 	}
 	printf("Click on the color to perform chroma keying on on or press 'n' to go to next frame of video\n");
